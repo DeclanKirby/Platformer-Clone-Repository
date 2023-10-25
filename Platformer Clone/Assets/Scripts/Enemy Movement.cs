@@ -12,6 +12,7 @@ public class SideToSideEnemy : MonoBehaviour
     public float speed;
     private float startingX;
     public bool goingRight = true;
+    private int health = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,4 +47,5 @@ public class SideToSideEnemy : MonoBehaviour
             else goingRight = true;
         }
     }
+    
 }
