@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject Reg_BulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class Bullet : MonoBehaviour
         
     }
 
-    private void ShootBullet()
+    public void ShootBullet()
     {
         //shoot bullet prefab in the direction the player is facing
     }
