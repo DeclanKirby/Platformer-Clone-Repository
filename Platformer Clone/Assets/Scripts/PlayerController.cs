@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public int bulletSpeed = 5;
 
     public int health = 99;
+
+    public bool facingRight = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +42,12 @@ public class PlayerController : MonoBehaviour
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerJump();
             
         }
+        Shoot();
     }
 
     private void PlayerJump()
@@ -52,36 +55,48 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
 
         //Adjust the value based on size of player character
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 5f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.2f))
         {
             
             rigidbodyRef.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("jumping");
+            
         }
     }
 
     private void Shoot()
     {
-       //Enter = shoot in direction player is facing
+        if (Input.GetKeyUp(KeyCode.KeypadEnter))
+        {
+           
             //shoot in direction
 
-       //Left Arrow = shoot left
-            //if (facing left){
-            //shoot
-            //}
-                //if (not facing left){
-                //rotate 180
-                //shoot
-                //}
+            
+        }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
 
-       //Right Arrow = shoot right
-            //if (facing right){
+
+            if (!facingRight){
             //shoot
-            //}
-                //if (not facing right){
-                //rotate 180
-                //shoot
-                //}
+            }
+            if (facingRight){
+                transform.Rotate(Vector3.up * 180);
+                facingRight = false;
+            //shoot
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            
+            if (facingRight){
+            //shoot
+            }
+            if (!facingRight){
+                transform.Rotate(Vector3.up * 180);
+                facingRight = true;
+            //shoot
+            }
+        }
     }
     /*private void OnTriggerEnter(Collider other)
     {
