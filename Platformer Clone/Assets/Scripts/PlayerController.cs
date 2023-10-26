@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             PlayerJump();
+            
         }
     }
 
@@ -51,16 +52,36 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
 
         //Adjust the value based on size of player character
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.8f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 5f))
         {
             
             rigidbodyRef.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Debug.Log("jumping");
         }
     }
 
     private void Shoot()
     {
-       
+       //Enter = shoot in direction player is facing
+            //shoot in direction
+
+       //Left Arrow = shoot left
+            //if (facing left){
+            //shoot
+            //}
+                //if (not facing left){
+                //rotate 180
+                //shoot
+                //}
+
+       //Right Arrow = shoot right
+            //if (facing right){
+            //shoot
+            //}
+                //if (not facing right){
+                //rotate 180
+                //shoot
+                //}
     }
     /*private void OnTriggerEnter(Collider other)
     {
