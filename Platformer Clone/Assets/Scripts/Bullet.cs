@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
 
     private void ShootBullet()
     {
-        GameObject laserInstance = Instantiate(laserPrefab, transform.position, transform.rotation);
-        laserInstance.GetComponent<Laser>().goingRight = shootRight;
+        //GameObject laserInstance = Instantiate(laserPrefab, transform.position, transform.rotation);
+        //laserInstance.GetComponent<Laser>().goingRight = shootRight;
     }
 }
