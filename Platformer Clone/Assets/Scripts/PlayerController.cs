@@ -25,12 +25,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (health <= 0)
+        if (health <= 0)
         {
             Debug.Log("Game Over");
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
         }
-        */
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -98,16 +97,16 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "BasicEnemy")
         {
             health += -15;
+
         }
         if (other.gameObject.tag == "AdvancedEnemy")
         {
             health += -35;
         }
     }
-    */
 }

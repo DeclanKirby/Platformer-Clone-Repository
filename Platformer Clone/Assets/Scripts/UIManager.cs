@@ -11,11 +11,11 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TMP_Text healthText;
-    //public PlayerController playerController;
+    public PlayerController playerController;
 
     // Update is called once per frame
     void Update()
     {
-        //healthText.text = "Health: " + playerController.health; yet to be added, int for the players changing health
+        healthText.text = "Health: " + playerController.health;
     }
 }

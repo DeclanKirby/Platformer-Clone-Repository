@@ -19,6 +19,6 @@ public class Bullet : MonoBehaviour
 
     public void ShootBullet()
     {
-        //shoot bullet prefab in the direction the player is facing
+		
     }
 }
