@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "BasicEnemy")
         {
             health += -15;
+
         }
         if (other.gameObject.tag == "AdvancedEnemy")
         {
