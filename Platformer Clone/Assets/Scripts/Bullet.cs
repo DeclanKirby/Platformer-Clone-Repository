@@ -19,6 +19,6 @@ public class Bullet : MonoBehaviour
 
     public void ShootBullet()
     {
-		
+		//instantiate(Reg_BulletPrefab,)
     }
 }
