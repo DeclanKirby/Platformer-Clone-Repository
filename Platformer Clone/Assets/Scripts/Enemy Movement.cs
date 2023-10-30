@@ -46,6 +46,9 @@ public class SideToSideEnemy : MonoBehaviour
             }
             else goingRight = true;
         }
+
     }
     
+    
+
 }

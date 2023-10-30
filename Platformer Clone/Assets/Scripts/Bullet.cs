@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float speed;
     public bool facingRight = true;
     public float lifeSpan = 4.0f;
+    public float bulletHitDist = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,35 @@ public class Bullet : MonoBehaviour
         {
             transform.position += speed * Vector3.left * Time.deltaTime;
         }
+
+        CheckForEnemy();
     }
+
+
+    private void CheckForEnemy()
+    {
+        RaycastHit hit;
+
+        //Detects collision for enemies
+        if (Physics.Raycast(transform.position, Vector3.right, out hit, bulletHitDist))
+        {
+            if (hit.collider.tag == "BasicEnemy")
+            {
+                hit.collider.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.left, out hit, bulletHitDist))
+        {
+            if (hit.collider.tag == "BasicEnemy")
+            {
+                hit.collider.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
 
     IEnumerator DespawnDelay()
     {
