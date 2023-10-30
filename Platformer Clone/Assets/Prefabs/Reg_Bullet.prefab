@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4391947511174947917}
   - component: {fileID: 1758081987596616718}
   - component: {fileID: 7081757416479779024}
-  - component: {fileID: -8251528011745758666}
+  - component: {fileID: -8471823878002323684}
   m_Layer: 0
   m_Name: Reg_Bullet
   m_TagString: Reg_Bullet
@@ -100,7 +100,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -108,7 +108,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8251528011745758666
+--- !u!114 &-8471823878002323684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,3 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b431a53e730e594caa7141d663a47fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  facingRight: 1

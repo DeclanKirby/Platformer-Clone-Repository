@@ -12,14 +12,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidbodyRef;
 
     public int bulletSpeed = 5;
-
+    public float timeBetweenShots;
+    public GameObject bulletPrefab;
+    
     public int health = 99;
 
     public bool facingRight = true;
+
+    public bool isBulletCoolDown = false;
+
+    public float bulletCoolDown = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
         rigidbodyRef = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -64,10 +71,10 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetKeyUp(KeyCode.KeypadEnter))
+        if (Input.GetKeyUp(KeyCode.Return))
         {
-           
-            //shoot in direction
+
+            SpawnBullet();
 
             
         }
@@ -75,38 +82,70 @@ public class PlayerController : MonoBehaviour
         {
 
 
-            if (!facingRight){
-            //shoot
-            }
+            
             if (facingRight){
                 transform.Rotate(Vector3.up * 180);
                 facingRight = false;
-            //shoot
+            
             }
+
+            //shoot
+            SpawnBullet();
         }
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
             
-            if (facingRight){
-            //shoot
-            }
+            
             if (!facingRight){
                 transform.Rotate(Vector3.up * 180);
                 facingRight = true;
-            //shoot
+            
             }
+
+            //shoot
+            SpawnBullet();
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "BasicEnemy")
         {
-            health += -15;
+            health -= 15;
 
         }
         if (other.gameObject.tag == "AdvancedEnemy")
         {
-            health += -35;
+            health -= 35;
         }
     }
+
+   
+
+    public void SpawnBullet()
+    {
+        Debug.Log("Starting Spawn Bullet");
+        if(isBulletCoolDown == false)
+        {
+            GameObject normalBullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation) as GameObject;
+            if (normalBullet.GetComponent<Bullet>())
+            {
+                normalBullet.GetComponent<Bullet>().facingRight = facingRight;
+                //Start cooldown
+                isBulletCoolDown = true;
+                StartCoroutine(CooldownDelay());
+            }
+            
+        }
+
+        Debug.Log("Ending SPawn Bullet");
+
+    }
+
+    IEnumerator CooldownDelay()
+    {
+        yield return new WaitForSeconds(bulletCoolDown);
+        isBulletCoolDown = false;
+    }
+
+
 }
