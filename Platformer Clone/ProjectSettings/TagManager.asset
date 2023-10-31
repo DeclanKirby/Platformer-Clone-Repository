@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Reg_Bullet
   - BasicEnemy
+  - AdvancedEnemy
   layers:
   - Default
   - TransparentFX

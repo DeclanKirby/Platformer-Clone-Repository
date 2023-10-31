@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public bool isBulletCoolDown = false;
 
     public float bulletCoolDown = 0.5f;
+
+    private bool invulnerable = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -108,14 +110,16 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "BasicEnemy")
+        if (other.gameObject.tag == "BasicEnemy" && invulnerable == false)
         {
             health -= 15;
+            StartCoroutine(InvulnerabilityDelay());
 
         }
-        if (other.gameObject.tag == "AdvancedEnemy")
+        if (other.gameObject.tag == "AdvancedEnemy" && invulnerable == false)
         {
             health -= 35;
+            StartCoroutine(InvulnerabilityDelay());
         }
     }
 
@@ -147,5 +151,10 @@ public class PlayerController : MonoBehaviour
         isBulletCoolDown = false;
     }
 
-
+    IEnumerator InvulnerabilityDelay()
+    {
+        invulnerable = true;
+        yield return new WaitForSeconds(5);
+        invulnerable = false;
+    }
 }
