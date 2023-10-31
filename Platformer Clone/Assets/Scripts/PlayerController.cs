@@ -14,7 +14,10 @@ public class PlayerController : MonoBehaviour
     public int bulletSpeed = 5;
     public float timeBetweenShots;
     public GameObject bulletPrefab;
-    
+
+    public GameObject playerBackpack;
+    public GameObject playerJetpack;
+
     public int health = 99;
     private int startingHealth = 99;
 
@@ -124,7 +127,7 @@ public class PlayerController : MonoBehaviour
             health -= 35;
             StartCoroutine(InvulnerabilityDelay());
         }
-        if (other.gameObject.tag == "Health Pack" && health < 99)
+        if (other.gameObject.tag == "Health Pack" && health < startingHealth)
         {
             health += healthPack;
             other.gameObject.SetActive(false);
@@ -132,6 +135,20 @@ public class PlayerController : MonoBehaviour
             {
                 health = startingHealth;
             }
+        }
+        if (other.gameObject.tag == "Health Upgrade")
+        {
+            startingHealth = 199;
+            health = startingHealth;
+            other.gameObject.SetActive(false);
+        }
+        if(other.gameObject.tag == "Jet Pack")
+        {
+            jumpForce = jumpForce * 2;
+            other.gameObject.SetActive(false);
+            playerBackpack.SetActive(false);
+            playerJetpack.SetActive(true);
+            
         }
     }
 

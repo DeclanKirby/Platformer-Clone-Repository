@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 7824501135839216276}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Backpack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   facingRight: 1
   isBulletCoolDown: 0
   bulletCoolDown: 0.5
+  healthPack: 25
 --- !u!54 &1857360107787241186
 Rigidbody:
   m_ObjectHideFlags: 0
