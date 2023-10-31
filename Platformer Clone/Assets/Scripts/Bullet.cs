@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     public float lifeSpan = 4.0f;
     public float bulletHitDist = 0.5f;
 
+    public float damage = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,25 @@ public class Bullet : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.left, out hit, bulletHitDist))
         {
             if (hit.collider.tag == "BasicEnemy")
+            {
+                hit.collider.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+        }
+
+        //Detect collision for harder enemies
+        if (Physics.Raycast(transform.position, Vector3.right, out hit, bulletHitDist))
+        {
+            if (hit.collider.tag == "HardEnemy")
+            {
+                hit.collider.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.left, out hit, bulletHitDist))
+        {
+            if (hit.collider.tag == "HardEnemy")
             {
                 hit.collider.gameObject.SetActive(false);
                 gameObject.SetActive(false);
