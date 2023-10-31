@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     
     public int health = 99;
+    private int startingHealth = 99;
 
     public bool facingRight = true;
 
@@ -24,11 +25,13 @@ public class PlayerController : MonoBehaviour
     public float bulletCoolDown = 0.5f;
 
     private bool invulnerable = false;
+
+    public int healthPack = 25;
     // Start is called before the first frame update
     void Start()
     {
         rigidbodyRef = GetComponent<Rigidbody>();
-        
+        startingHealth = health;
     }
 
     // Update is called once per frame
@@ -120,6 +123,15 @@ public class PlayerController : MonoBehaviour
         {
             health -= 35;
             StartCoroutine(InvulnerabilityDelay());
+        }
+        if (other.gameObject.tag == "Health Pack" && health < 99)
+        {
+            health += healthPack;
+            other.gameObject.SetActive(false);
+            if (health >= startingHealth)
+            {
+                health = startingHealth;
+            }
         }
     }
 
