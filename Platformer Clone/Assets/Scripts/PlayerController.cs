@@ -120,12 +120,13 @@ public class PlayerController : MonoBehaviour
         {
             health -= 15;
             StartCoroutine(InvulnerabilityDelay());
-
+            StartCoroutine(Blink());
         }
         if (other.gameObject.tag == "AdvancedEnemy" && invulnerable == false)
         {
             health -= 35;
             StartCoroutine(InvulnerabilityDelay());
+            StartCoroutine(Blink());
         }
         if (other.gameObject.tag == "Health Pack" && health < startingHealth)
         {
@@ -185,5 +186,32 @@ public class PlayerController : MonoBehaviour
         invulnerable = true;
         yield return new WaitForSeconds(5);
         invulnerable = false;
+    }
+
+    IEnumerator Blink()
+    {
+        MeshRenderer[] Renderers = GetComponentsInChildren<MeshRenderer>();
+        for (int index = 0; index < 50; index++)
+        {
+            if (index % 2 == 0)
+            {
+                for (int i = 0; i < Renderers.Length; i++)
+                {
+                    Renderers[i].enabled = false;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Renderers.Length; i++)
+                {
+                    Renderers[i].enabled = true;
+                }
+            }
+            yield return new WaitForSeconds(.1f);
+        }
+        for (int i = 0; i < Renderers.Length; i++)
+        {
+            Renderers[i].enabled = true;
+        }
     }
 }
