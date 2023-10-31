@@ -12,6 +12,7 @@ TagManager:
   - Jet Pack
   - Backpack
   - Player Jetpack
+  - Heavy Bullet
   layers:
   - Default
   - TransparentFX

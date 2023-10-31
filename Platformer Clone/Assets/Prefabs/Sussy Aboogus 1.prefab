@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 3600604708733965457}
   m_Layer: 0
   m_Name: Sussy Aboogus 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,6 +375,8 @@ MonoBehaviour:
   bulletSpeed: 10
   timeBetweenShots: 0
   bulletPrefab: {fileID: 6329647800031556995, guid: fce057e5757e9e147b9ab20a4765742e, type: 3}
+  playerBackpack: {fileID: 0}
+  playerJetpack: {fileID: 0}
   health: 99
   facingRight: 1
   isBulletCoolDown: 0
