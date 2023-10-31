@@ -372,7 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 4
-  bulletSpeed: 5
+  bulletSpeed: 10
   timeBetweenShots: 0
   bulletPrefab: {fileID: 6329647800031556995, guid: fce057e5757e9e147b9ab20a4765742e, type: 3}
   health: 99
