@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(InvulnerabilityDelay());
             StartCoroutine(Blink());
         }
-        if (other.gameObject.tag == "AdvancedEnemy" && invulnerable == false)
+        if (other.gameObject.tag == "Hard Enemy" && invulnerable == false)
         {
             health -= 35;
             StartCoroutine(InvulnerabilityDelay());
