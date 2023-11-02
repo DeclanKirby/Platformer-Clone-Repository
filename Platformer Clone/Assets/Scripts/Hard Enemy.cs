@@ -20,6 +20,8 @@ public class HardEnemy : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        CheckForPlayer();
     }
     private void CheckForPlayer()
     {
