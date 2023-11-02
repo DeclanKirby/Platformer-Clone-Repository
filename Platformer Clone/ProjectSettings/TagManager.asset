@@ -15,6 +15,7 @@ TagManager:
   - Heavy Bullet
   - Hard Enemy
   - Heavy Bullet Upgrade
+  - Portal
   layers:
   - Default
   - TransparentFX

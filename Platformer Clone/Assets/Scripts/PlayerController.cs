@@ -33,11 +33,14 @@ public class PlayerController : MonoBehaviour
     public int healthPack = 25;
 
     public bool hasHeavyBullet = false;
+
+    Vector3 originalPos;
     // Start is called before the first frame update
     void Start()
     {
         rigidbodyRef = GetComponent<Rigidbody>();
         startingHealth = health;
+        originalPos = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -159,6 +162,12 @@ public class PlayerController : MonoBehaviour
         {
             hasHeavyBullet = true;
             other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.tag == "Portal")
+        {
+            transform.position = other.gameObject.GetComponent<Portal>().teleportPoint.transform.position;
+            originalPos = transform.position;
         }
     }
 
