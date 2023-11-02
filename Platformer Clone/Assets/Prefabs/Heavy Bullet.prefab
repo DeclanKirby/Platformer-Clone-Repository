@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4896586024534723691}
   m_Layer: 0
   m_Name: Heavy Bullet
-  m_TagString: Reg_Bullet
+  m_TagString: Heavy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,3 +124,4 @@ MonoBehaviour:
   facingRight: 1
   lifeSpan: 4
   bulletHitDist: 0.5
+  damage: 3

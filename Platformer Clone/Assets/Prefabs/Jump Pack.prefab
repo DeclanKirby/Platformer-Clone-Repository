@@ -329,6 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2988114357634093113}
   - component: {fileID: 9079593965291394701}
+  - component: {fileID: -539620734883685802}
   m_Layer: 0
   m_Name: Jump Pack
   m_TagString: Jet Pack
@@ -375,3 +376,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: -1, y: 0, z: 0}
+--- !u!114 &-539620734883685802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9027572334519965858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf01a6d5dd22344ab890b0a98a0f2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 30
+  spinDirection: {x: 0, y: 0, z: 0}

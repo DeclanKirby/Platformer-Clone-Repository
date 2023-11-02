@@ -13,6 +13,8 @@ TagManager:
   - Backpack
   - Player Jetpack
   - Heavy Bullet
+  - Hard Enemy
+  - Heavy Bullet Upgrade
   layers:
   - Default
   - TransparentFX

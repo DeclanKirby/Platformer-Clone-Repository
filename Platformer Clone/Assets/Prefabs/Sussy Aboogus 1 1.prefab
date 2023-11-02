@@ -477,10 +477,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 4
+  jumpForce: 5
   bulletSpeed: 10
   timeBetweenShots: 0
   bulletPrefab: {fileID: 6329647800031556995, guid: fce057e5757e9e147b9ab20a4765742e, type: 3}
+  heavyBulletPrefab: {fileID: 5184694984857350464, guid: a02d80fd82962f14db3ee060371cf164, type: 3}
   playerBackpack: {fileID: 3414027098036296228}
   playerJetpack: {fileID: 2980211047672535922}
   health: 99
@@ -488,6 +489,7 @@ MonoBehaviour:
   isBulletCoolDown: 0
   bulletCoolDown: 0.5
   healthPack: 25
+  hasHeavyBullet: 0
 --- !u!54 &5472169958817787380
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -665,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6554328920490535873, guid: 62f18853b55c0e649815bf5c72c80f77, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player Jetpack
       objectReference: {fileID: 0}
     - target: {fileID: 6561119296594793749, guid: 62f18853b55c0e649815bf5c72c80f77, type: 3}
       propertyPath: m_LocalPosition.x

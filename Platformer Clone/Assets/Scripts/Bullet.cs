@@ -60,18 +60,18 @@ public class Bullet : MonoBehaviour
         //Detect collision for harder enemies
         if (Physics.Raycast(transform.position, Vector3.right, out hit, bulletHitDist))
         {
-            if (hit.collider.tag == "HardEnemy")
+            if (hit.collider.tag == "Hard Enemy")
             {
-                hit.collider.gameObject.SetActive(false);
+                hit.collider.gameObject.GetComponent<HardEnemy>().enemyHealth -= damage;
                 gameObject.SetActive(false);
             }
         }
 
         if (Physics.Raycast(transform.position, Vector3.left, out hit, bulletHitDist))
         {
-            if (hit.collider.tag == "HardEnemy")
+            if (hit.collider.tag == "Hard Enemy")
             {
-                hit.collider.gameObject.SetActive(false);
+                hit.collider.gameObject.GetComponent<HardEnemy>().enemyHealth -= damage;
                 gameObject.SetActive(false);
             }
         }

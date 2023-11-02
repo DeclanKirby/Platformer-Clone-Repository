@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public int bulletSpeed = 5;
     public float timeBetweenShots;
     public GameObject bulletPrefab;
+    public GameObject heavyBulletPrefab;
 
     public GameObject playerBackpack;
     public GameObject playerJetpack;
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private bool invulnerable = false;
 
     public int healthPack = 25;
+
+    public bool hasHeavyBullet = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -151,6 +154,12 @@ public class PlayerController : MonoBehaviour
             playerJetpack.SetActive(true);
             
         }
+
+        if (other.gameObject.tag == "Heavy Bullet Upgrade")
+        {
+            hasHeavyBullet = true;
+            other.gameObject.SetActive(false);
+        }
     }
 
    
@@ -160,15 +169,30 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Starting Spawn Bullet");
         if(isBulletCoolDown == false)
         {
-            GameObject normalBullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation) as GameObject;
-            if (normalBullet.GetComponent<Bullet>())
+            if (hasHeavyBullet == false)
             {
-                normalBullet.GetComponent<Bullet>().facingRight = facingRight;
-                //Start cooldown
-                isBulletCoolDown = true;
-                StartCoroutine(CooldownDelay());
+                GameObject normalBullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation) as GameObject;
+                if (normalBullet.GetComponent<Bullet>())
+                {
+                    normalBullet.GetComponent<Bullet>().facingRight = facingRight;
+                    //Start cooldown
+                    isBulletCoolDown = true;
+                    StartCoroutine(CooldownDelay());
+                }
             }
-            
+
+            if (hasHeavyBullet == true)
+            {
+                GameObject heavyBullet = Instantiate(heavyBulletPrefab, transform.position, heavyBulletPrefab.transform.rotation) as GameObject;
+                if (heavyBullet.GetComponent<Bullet>())
+                {
+                    heavyBullet.GetComponent<Bullet>().facingRight = facingRight;
+                    //Start cooldown
+                    isBulletCoolDown = true;
+                    StartCoroutine(CooldownDelay());
+                }
+            }
+
         }
 
         Debug.Log("Ending SPawn Bullet");

@@ -22,6 +22,8 @@ public class HardEnemy : MonoBehaviour
         }
 
         CheckForPlayer();
+        Debug.DrawLine(transform.position, transform.position + Vector3.left * 6, Color.red);
+        Debug.DrawLine(transform.position, transform.position + Vector3.right * 6, Color.red);
     }
     private void CheckForPlayer()
     {
@@ -29,7 +31,7 @@ public class HardEnemy : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.right, out hit, detectionRange))
         {
-            if (hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player" || hit.collider.tag == "Backpack" || hit.collider.tag == "Player Jetpack")
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
             }
@@ -37,7 +39,7 @@ public class HardEnemy : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.left, out hit, detectionRange))
         {
-            if (hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player" || hit.collider.tag == "Backpack" || hit.collider.tag == "Player Jetpack")
             {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
