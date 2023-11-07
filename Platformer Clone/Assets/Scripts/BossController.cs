@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
+
+    public float health = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,11 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
+
+
 }

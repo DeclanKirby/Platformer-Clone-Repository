@@ -4,23 +4,23 @@ using UnityEngine;
 
 //Kelly, Aidan
 //10/19/23
-//Shoots lasers left or right forever
+//Shoots boss bullet left or right forever
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject laserPrefab;
+    public GameObject bossBulletPrefab;
     public float spawnRate = 1f;
     public bool shootRight = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("ShootLaser", 0, spawnRate);
+        InvokeRepeating("ShootBossBullet", 0, spawnRate);
     }
 
-    private void ShootLaser()
+    private void ShootBossBullet()
     {
-        GameObject laserInstance = Instantiate(laserPrefab, transform.position, transform.rotation);
-        laserInstance.GetComponent<Laser>().goingRight = shootRight;
+       GameObject bossBulletInstance = Instantiate(bossBulletPrefab, transform.position, transform.rotation);
+        bossBulletInstance.GetComponent<BossBullet>().goingRight = shootRight;
     }
 }

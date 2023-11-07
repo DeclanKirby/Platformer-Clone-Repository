@@ -75,6 +75,24 @@ public class Bullet : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+
+        if (Physics.Raycast(transform.position, Vector3.right, out hit, bulletHitDist))
+        {
+            if (hit.collider.tag == "CubeMan")
+            {
+                hit.collider.gameObject.GetComponent<BossController>().health -= damage;
+                gameObject.SetActive(false);
+            }
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.left, out hit, bulletHitDist))
+        {
+            if (hit.collider.tag == "CubeMan")
+            {
+                hit.collider.gameObject.GetComponent<BossController>().health -= damage;
+                gameObject.SetActive(false);
+            }
+        }
     }
 
 
