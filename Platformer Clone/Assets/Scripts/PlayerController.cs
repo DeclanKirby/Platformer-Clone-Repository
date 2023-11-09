@@ -134,6 +134,13 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(InvulnerabilityDelay());
             StartCoroutine(Blink());
         }
+
+        if (other.gameObject.tag == "BossBullet" && invulnerable == false)
+        {
+            health -= 45;
+            StartCoroutine(InvulnerabilityDelay());
+            StartCoroutine(Blink());
+        }
         if (other.gameObject.tag == "Health Pack" && health < startingHealth)
         {
             health += healthPack;
