@@ -93,6 +93,14 @@ public class Bullet : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+        if (Physics.Raycast(transform.position, Vector3.right, out hit, bulletHitDist))
+        {
+            if (hit.collider.tag == "Breakable Wall")
+            {
+                hit.collider.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
+        }
     }
 
 

@@ -18,6 +18,7 @@ TagManager:
   - Portal
   - CubeMan
   - BossBullet
+  - Breakable Wall
   layers:
   - Default
   - TransparentFX
