@@ -125,3 +125,4 @@ MonoBehaviour:
   lifeSpan: 4
   bulletHitDist: 0.5
   damage: 3
+  isHeavy: 1

@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
 
     public float damage = 1.0f;
 
+    public bool isHeavy = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,7 +97,7 @@ public class Bullet : MonoBehaviour
         }
         if (Physics.Raycast(transform.position, Vector3.right, out hit, bulletHitDist))
         {
-            if (hit.collider.tag == "Breakable Wall")
+            if (isHeavy && hit.collider.tag == "Breakable Wall")
             {
                 hit.collider.gameObject.SetActive(false);
                 gameObject.SetActive(false);

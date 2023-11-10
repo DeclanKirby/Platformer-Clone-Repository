@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class BossController : MonoBehaviour
         if (health <= 0)
         {
             gameObject.SetActive(false);
+            SceneManager.LoadScene(3);
         }
     }
 

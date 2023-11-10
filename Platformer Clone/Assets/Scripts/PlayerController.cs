@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Game Over");
-            //SceneManager.LoadScene(2);
+            SceneManager.LoadScene(2);
         }
 
         if (Input.GetKey(KeyCode.A))
