@@ -16,6 +16,9 @@ TagManager:
   - Hard Enemy
   - Heavy Bullet Upgrade
   - Portal
+  - CubeMan
+  - BossBullet
+  - Breakable Wall
   layers:
   - Default
   - TransparentFX

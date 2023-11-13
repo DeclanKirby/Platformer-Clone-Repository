@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Game Over");
-            //SceneManager.LoadScene(2);
+            SceneManager.LoadScene(2);
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -131,6 +131,13 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Hard Enemy" && invulnerable == false)
         {
             health -= 35;
+            StartCoroutine(InvulnerabilityDelay());
+            StartCoroutine(Blink());
+        }
+
+        if (other.gameObject.tag == "BossBullet" && invulnerable == false)
+        {
+            health -= 45;
             StartCoroutine(InvulnerabilityDelay());
             StartCoroutine(Blink());
         }
